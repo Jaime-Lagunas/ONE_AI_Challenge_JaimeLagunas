@@ -49,6 +49,8 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
   - Herramienta para realizar búsquedas en Google cuando el RAG no contiene la información.  
   - Configurada para devolver hasta 2 resultados por consulta.  
 
+ ![memoria base](memoria.png)
+
 ---
 
 ## 🔵 Sistema RAG – Embedding
