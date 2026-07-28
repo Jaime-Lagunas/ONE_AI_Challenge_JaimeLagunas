@@ -1,0 +1,404 @@
+{
+  "name": "Challenge ONE AI Tech Builder copy",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "Eres un asistente de búsqueda en un sistema RAG o en la web. \nSi el prompt recibido trata de temas sobre Código de Ética o el Código de conducta de servidores públicos, utilizarás el RAG, pero cuando el prompt pregunte sobre temas más generales utiliza la herramienta SerpAPI para buscar la respuesta en Google.\nFinalmente, Cuando la respuesta haya sido obtenida desde el RAG, al terminar la respuesta escribe \"RAG\"\ny cuando la respuesta sea resultado de la búsqueda web escribe al terminar \"Web\"",
+          "maxIterations": 5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        0,
+        -192
+      ],
+      "id": "2d9585e0-affb-410e-a752-7ab6a5d1d659",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxOutputTokens": 256,
+          "temperature": 0.4,
+          "topK": 20,
+          "topP": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -176,
+        80
+      ],
+      "id": "3b1a0215-8007-41ac-ae85-ec81e9abd7b5",
+      "name": "Google Gemini Chat Model"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.message.text }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -16,
+        80
+      ],
+      "id": "f814d7b4-5947-4f61-a194-09a19367714c",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "q": "={{ $json.message.text }}",
+        "location": "=",
+        "additionalFields": {
+          "num": "2"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-serpapi.serpApiTool",
+      "typeVersion": 1,
+      "position": [
+        144,
+        80
+      ],
+      "id": "c6a7140d-83f2-4402-ba44-a2d1b175ab7b",
+      "name": "Google search in SerpApi",
+      "credentials": {
+        "serpApi": {
+          "id": "7043M2KDgdeqtChK",
+          "name": "SerpApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        768,
+        416
+      ],
+      "id": "9c184622-7210-4db1-a9c6-9ea1dfec490a",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "vector_store_key",
+          "mode": "list",
+          "cachedResultName": "vector_store_key"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        784,
+        176
+      ],
+      "id": "8ef074c3-7b04-4fbb-98ab-608dff6ff7d4",
+      "name": "Insert Data to Store"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "knowledge_base",
+        "toolDescription": "Use this knowledge base to answer questions from the user",
+        "memoryKey": {
+          "__rl": true,
+          "value": "vector_store_key",
+          "mode": "list",
+          "cachedResultName": "vector_store_key"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.2,
+      "position": [
+        272,
+        128
+      ],
+      "id": "69555350-8e34-421e-8738-46da3688a794",
+      "name": "Query Data Tool"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        544,
+        368
+      ],
+      "id": "de7333f8-feb4-4ade-ab53-668524a2a973",
+      "name": "Embeddings Google Gemini"
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "1svMAJO3c5Qy2HnT0nq4v55avLtQB8Pza",
+            "mode": "list",
+            "cachedResultName": "ONE_AI_RAG",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1svMAJO3c5Qy2HnT0nq4v55avLtQB8Pza"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        640,
+        48
+      ],
+      "id": "7b4af6ec-6426-4caf-9d3c-2111c32aca84",
+      "name": "Search files and folders",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "u3mKWrKQIIIy525T",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -416,
+        -192
+      ],
+      "id": "f438f628-181c-4f68-83d6-ae22cd6b7ee8",
+      "name": "Telegram Trigger",
+      "webhookId": "2c2d717e-7dea-4028-b1b1-dfc12d61e130",
+      "credentials": {
+        "telegramApi": {
+          "id": "wpgV8CVNjDRDb8Zu",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Entrada desde Telegram",
+        "height": 224
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -464,
+        -272
+      ],
+      "typeVersion": 1,
+      "id": "c735bb70-c23c-4115-84c5-8c4db9d0858c",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Agente / Orquestación",
+        "height": 624,
+        "width": 592,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -224,
+        -272
+      ],
+      "typeVersion": 1,
+      "id": "ffa7395f-bcbe-41a5-a6dd-26a50b0a1d9f",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## RAG - Embedding",
+        "height": 576,
+        "width": 752,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "9fad0e10-099e-4df9-9414-5c43a42e86d7",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Salida a Telegram\n",
+        "height": 240,
+        "width": 384
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        -272
+      ],
+      "typeVersion": 1,
+      "id": "615b5b51-7596-4ef0-9727-ceebb377ffca",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "parse_mode": "HTML"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        480,
+        -192
+      ],
+      "id": "8bd751bd-46e2-4659-936c-74fed6e7bfc9",
+      "name": "Send a text message",
+      "webhookId": "a9b13dd4-d91b-4486-a9c9-fd5c9c345914",
+      "credentials": {
+        "telegramApi": {
+          "id": "wpgV8CVNjDRDb8Zu",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google search in SerpApi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Insert Data to Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Data Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Insert Data to Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Query Data Tool",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "node": "Insert Data to Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "3eaa72a1-bb55-48b5-8281-828ce6a44009",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6faceb2f1e567747a846d8417d995647832d6cf4956aca0d55a741254d0efff4"
+  },
+  "nodeGroups": [],
+  "id": "ebTVoMbcgLAAlrY6",
+  "tags": []
+}
