@@ -70,4 +70,13 @@ Este proyecto está publicado en un repositorio público de GitHub con:
 ## 🔮 Próximos Pasos
 - Extender el sistema RAG a otros formatos (Word, Excel, CSV).  
 - Mejorar la memoria del agente para conversaciones más largas.  
-- Desplegar en OCI para escalar el servicio o adquirir un servicio como hostinger que cuenta con un plan con n8n 
+- Desplegar en OCI para escalar el servicio o adquirir un servicio como hostinger que cuenta con un plan con n8n
+
+> # 🌟 Agradecimiento Especial  
+> 
+> 🙌 **Gracias a todos los instructores del programa ONE** por su dedicación, paciencia y compromiso.  
+> 
+> 📚 Su guía y acompañamiento han sido fundamentales para completar este desafío y seguir creciendo en el aprendizaje de inteligencia artificial.  
+> 
+> 🎉
+
