@@ -38,7 +38,11 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
     - `temperature = 0.4`  
     - `topK = 20`  
     - `topP = 0.5`  
-  - Estos parámetros optimizan el consumo de créditos y mantienen respuestas concisas.  
+  - Estos parámetros optimizan el consumo de créditos y mantienen respuestas concisas.
+
+  ![orquestador general](geminimodel1.png)
+  
+  ![orquestador modelo](geminimodel2.png)
 
 - **Simple Memory**:  
   - Almacena contexto de la conversación con ventana de 10 interacciones.  
