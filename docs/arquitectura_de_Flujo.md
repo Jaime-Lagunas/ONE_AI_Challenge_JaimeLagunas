@@ -15,8 +15,8 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
 - **Telegram Trigger**: recibe mensajes enviados por los usuarios.  
 - El mensaje se convierte en el punto de inicio del flujo.
 
-![Flujo en n8n](telegram-in-1-3.png)
-![Flujo en n8n](telegram-in-2.png)
+![telegram in](telegram-in-1-3.png)
+
 
 ---
 
