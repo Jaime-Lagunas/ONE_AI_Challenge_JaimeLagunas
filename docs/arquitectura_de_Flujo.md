@@ -23,12 +23,14 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
 ---
 
 ## 🟩 Agente / Orquestación
-- **AI Agent**: núcleo del sistema.  
+- **AI Agent**: núcleo del sistema.
   - Configurado con un **systemMessage** que define la lógica de decisión:  
     - Si la consulta trata sobre **Código de Ética** o **Código de Conducta de servidores públicos**, se usa el **RAG**.  
     - Para temas generales, se usa **SerpAPI**.  
     - Al final de cada respuesta se etiqueta con “RAG” o “Web” según la fuente.  
   - Iteraciones máximas: 5.  
+
+![telegram agente](orquestador1.png)
 
 - **Google Gemini Chat Model**:  
   - Modelo de lenguaje configurado con:  
