@@ -114,5 +114,5 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
 
 ## 📌 Evidencias
 - Captura del flujo en n8n (arriba).  
-- Ejemplo de interacción en Telegram.  
-- Video demostrativo del despliegue en OCI.  
+- Ejemplo de interacción en Telegram.
+- El flujo de trabajo se encuentra publicado en n8n puedes intentar acceder a él desde telegram. 
