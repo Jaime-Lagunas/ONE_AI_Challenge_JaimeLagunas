@@ -85,6 +85,7 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
   - Envía la respuesta generada por el agente al usuario en Telegram.  
   - Formato de salida en HTML para mejor presentación.  
 
+ ![botfather](botfather.jpeg)
 ---
 
 ## ⚙️ Flujo General
