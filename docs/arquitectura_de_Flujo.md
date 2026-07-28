@@ -71,8 +71,11 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
 
 - **Query Data Tool**:  
   - Recupera información relevante desde el vector store.  
-  - Funciona como herramienta de consulta semántica para el agente.  
+  - Funciona como herramienta de consulta semántica para el agente.
+ 
+      ![google drive](drive1.png)
 
+      ![archivos drive](drive2.png)
 ---
 
 ## 🟨 Salida a Telegram
