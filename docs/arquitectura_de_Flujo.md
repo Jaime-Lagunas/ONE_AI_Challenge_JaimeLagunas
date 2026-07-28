@@ -80,12 +80,19 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
       ![archivos drive](drive2.png)
 ---
 
-## 🟨 Salida a Telegram
-- **Send a text message**:  
-  - Envía la respuesta generada por el agente al usuario en Telegram.  
-  - Formato de salida en HTML para mejor presentación.  
-
+## 🟨 Creación del Bot 
  ![botfather](botfather.jpeg)
+
+## 🟨 Entrada de preguntas y salida de respuestas a bot de Telegram
+- **Send a text message**:
+  - Envía la respuesta generada por el agente al usuario en Telegram.  
+  - Formato de salida en HTML para mejor presentación.
+ 
+   ![botfather SoyONEChallenge](RAG.jpeg)
+   ![botfather SoyONEChallenge_Bot](web.jpeg)
+
+
+
 ---
 
 ## ⚙️ Flujo General
