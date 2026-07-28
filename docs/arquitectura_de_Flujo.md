@@ -43,13 +43,15 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
   ![orquestador modelo](geminimodel2.png)
 
 - **Simple Memory**:  
-  - Almacena contexto de la conversación con ventana de 10 interacciones.  
+  - Almacena contexto de la conversación con ventana de 10 interacciones.
+ 
+  ![memoria base](memoria.png)
 
 - **Google search in SerpApi**:  
   - Herramienta para realizar búsquedas en Google cuando el RAG no contiene la información.  
   - Configurada para devolver hasta 2 resultados por consulta.  
 
- ![memoria base](memoria.png)
+  ![buscar en web](search.png)
 
 ---
 
