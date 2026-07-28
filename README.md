@@ -50,6 +50,16 @@ Esto es, un Agente de IA con RAG y Web Search, para este proyecto se usa como ca
 - [Ver arquitectura del flujo](docs/arquitectura_de_Flujo.md)
 - [Descargar flujo JSON](docs/Challenge%20ONE%20AI%20Tech%20Builder%20copy.json)
 
+  ## 🤖 Acceso al Bot
+Puedes interactuar directamente con el agente de IA a través de Telegram en el siguiente enlace:
+
+[Acceder al bot en Telegram](https://t.me/ChallengeOneAITechBot)
+
+> **⚠️ Nota Importante:**  :smile:
+> El flujo utiliza únicamente herramientas gratuitas.  
+> Se recomienda no agotar los créditos diarios para que los instructores puedan probarlo adecuadamente 
+
+
 ## 🚀 Repositorio
 Este proyecto está publicado en un repositorio público de GitHub con:
 - workflow de n8n en formato JSON, lo que realmente se guarda son las estructuras de los nodos y sus conexiones,
