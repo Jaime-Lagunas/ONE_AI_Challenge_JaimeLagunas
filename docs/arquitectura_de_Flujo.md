@@ -57,8 +57,7 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
 
 ## 🔵 Sistema RAG – Embedding
 
- ![flujo RAG](rag.png)
-
+ ![rag google drive](rag.png)
 - **Google Drive (Search files and folders)**:  
   - Carpeta con documentos PDF que sirven como base de conocimiento.  
   - ID de carpeta: `ONE_AI_RAG`.  
