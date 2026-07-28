@@ -18,7 +18,7 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
 
 - El mensaje se convierte en el punto de inicio del flujo.
 
-![telegram input](telegram-in-2.png)
+![telegram datos](telegram-in-2.png)
 
 ---
 
