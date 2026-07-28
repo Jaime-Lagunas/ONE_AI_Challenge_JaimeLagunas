@@ -56,6 +56,7 @@ Puedes interactuar directamente con el agente de IA a través de Telegram en el 
 [Acceder al bot en Telegram](https://t.me/ChallengeOneAITechBot)
 
 > **⚠️ Nota Importante:**  :smile:
+> 
 > El flujo utiliza únicamente herramientas gratuitas.  
 > Se recomienda no agotar los créditos diarios para que los instructores puedan probarlo adecuadamente 
 
