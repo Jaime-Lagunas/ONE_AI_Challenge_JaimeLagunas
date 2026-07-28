@@ -74,9 +74,7 @@ Este proyecto está publicado en un repositorio público de GitHub con:
 
 > # 🌟 Agradecimiento Especial  
 > 
-> 🙌 **Gracias a todos los instructores del programa ONE** por su dedicación, paciencia y compromiso.  
+> 🙌 **Gracias a todos los instructores y equipo de personas que hacen posible el programa ONE** por su dedicación, paciencia y compromiso.  
 > 
-> 📚 Su guía y acompañamiento han sido fundamentales para completar este desafío y seguir creciendo en el aprendizaje de inteligencia artificial.  
-> 
-> 🎉
+> 📚 Su guía y acompañamiento han sido fundamentales para completar este desafío y seguir creciendo en el aprendizaje de inteligencia artificial.  🎉
 
