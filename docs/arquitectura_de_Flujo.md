@@ -30,7 +30,7 @@ El agente de IA fue diseñado para responder preguntas de colaboradores utilizan
     - Al final de cada respuesta se etiqueta con “RAG” o “Web” según la fuente.  
   - Iteraciones máximas: 5.  
 
-![telegram agente](orquestador1.png)
+![orquestador](orquestador1.png)
 
 - **Google Gemini Chat Model**:  
   - Modelo de lenguaje configurado con:  
