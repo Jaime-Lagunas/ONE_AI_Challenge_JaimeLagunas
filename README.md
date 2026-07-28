@@ -47,7 +47,7 @@ Esto es, un Agente de IA con RAG y Web Search, para este proyecto se usa como ca
 ## 📸 Evidencia
 - Imagen del flujo en n8n.  
 - Captura de ejecución en Telegram.
-- [Ver arquitectura del flujo](arquitectura_de_Flujo.md)
+- [Ver arquitectura del flujo](docs/arquitectura_de_Flujo.md)
 - [Descargar flujo JSON](Challenge%20ONE%20AI%20Tech%20Builder%20copy.json)
 
 ## 🚀 Repositorio
